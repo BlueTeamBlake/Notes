@@ -1,0 +1,217 @@
+📝 Windows Registry Keys for Forensics
+🔹 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USBSTOR
+Description:
+Stores information about USB storage devices (e.g., flash drives, external hard drives) that have been connected to the system. Includes device GUIDs, serial numbers, and device instance paths.
+
+Forensic Value:
+Identifies USB storage devices connected to the system, even if they are no longer present. Useful for tracking data exfiltration and identifying suspicious device activity.
+
+🔹 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USB
+Description:
+Contains information about all USB devices connected to the system, including both storage and non-storage devices (e.g., printers, keyboards). Tracks device properties, vendor IDs, and driver information.
+
+Forensic Value:
+Identifies all USB devices interacting with the system. Helps uncover malicious USB devices used for malware delivery or data theft.
+
+🔹 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USBSTOR\Ven_Prod_Version\USBSerial#\Properties\{83da6326-97a6-4088-9453-a19231573b29}\####
+Description:
+Stores device properties for a particular USB storage device, such as device GUIDs, serial numbers, and unique device properties.
+
+Forensic Value:
+Helps identify specific USB devices based on serial numbers and vendor/product details. Useful for tracking data exfiltration or suspicious device activity.
+
+🔹 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\bam\UserSettings\{SID}
+Description:
+Stores settings related to the Background Activity Moderator (BAM) service, which manages background tasks for a specific user account.
+
+Forensic Value:
+Reveals information about background tasks and activities. Useful for tracking malicious processes or understanding what was running during user activity.
+
+🔹 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\dam\UserSettings\{SID}
+Description:
+Contains settings related to the Device Association Manager (DAM) service, which manages device associations for a specific user account.
+
+Forensic Value:
+Tracks USB device connections and other hardware interactions. Useful for detecting suspicious devices and data transfer events.
+
+🔹 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Portable Devices\Devices
+Description:
+Contains information about portable devices (e.g., smartphones, tablets) that have been connected to the system via Windows Portable Devices (WPD).
+
+Forensic Value:
+Helps identify portable device interactions and data transfers to/from external devices, especially useful for tracking data exfiltration or unauthorized device access.
+
+🔹 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Run
+Description:
+Stores programs that automatically start when a user logs in.
+
+Forensic Value:
+Reveals auto-starting programs, potentially including malware or persistent backdoors.
+
+🔹 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\RunOnce
+Description:
+Tracks programs that run once per user session.
+
+Forensic Value:
+Useful for identifying temporary or one-time programs executed during a user session, often related to malicious payloads or post-exploitation activities.
+
+🔹 SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+Description:
+Similar to the previous key but applies at the system level.
+
+Forensic Value:
+Tracks system-wide processes executed once, often related to initial payloads or post-exploitation.
+
+🔹 SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\Run
+Description:
+Configures processes that automatically run for explorer on system startup.
+
+Forensic Value:
+Potentially reveals persistent malware or unauthorized programs set to run at system startup.
+
+🔹 SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+Description:
+Tracks auto-start programs that run for all users on the system.
+
+Forensic Value:
+Identifies programs set to run automatically for all users, useful for detecting persistent malware or unauthorized access.
+
+🔹 SYSTEM\CurrentControlSet\Services
+Description:
+Tracks system services and their configurations.
+
+Forensic Value:
+Helps identify suspicious or rogue services that may have been installed by malware or unauthorized users.
+
+🔹 SAM\Domains\Account\Users
+Description:
+Contains information about user accounts on the system.
+
+Forensic Value:
+Reveals all user accounts, which can be helpful for user activity analysis or detecting new/unauthorized accounts.
+
+🔹 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
+Description:
+Tracks recently accessed documents by the user.
+
+Forensic Value:
+Useful for identifying documents or files recently accessed by the user, potentially indicating suspicious activity or data access.
+
+🔹 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs\.pdf
+Description:
+Specifically tracks recently accessed PDF documents by the user.
+
+Forensic Value:
+Can help uncover PDF file activity, potentially revealing malicious documents or sensitive files accessed by the user.
+
+🔹 NTUSER.DAT\Software\Microsoft\Office\VERSION
+Description:
+Contains configuration information for Microsoft Office products (e.g., Word, Excel).
+
+Forensic Value:
+Reveals Office application usage, which can help identify documents opened or modified by the user, potentially indicating malicious files or data exfiltration.
+
+🔹 NTUSER.DAT\Software\Microsoft\Office\15.0\Word
+Description:
+Contains specific information related to Microsoft Word (version 15.0).
+
+Forensic Value:
+Tracks Word document activity, including recently accessed documents, and can indicate suspicious files or exfiltrated data.
+
+🔹 NTUSER.DAT\Software\Microsoft\Office\VERSION\UserMRU\LiveID_####\FileMRU
+Description:
+Tracks Most Recently Used (MRU) files for Microsoft Office, by specific user IDs.
+
+Forensic Value:
+Can identify recently opened Office files, which can be crucial for tracking sensitive file access or data exfiltration activities.
+
+🔹 USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell\Bags
+Description:
+Stores user-specific file/folder activity (including folder settings and folder history).
+
+Forensic Value:
+Tracks file access and navigation history by the user, which can be helpful for uncovering file access patterns or identifying suspicious files.
+
+🔹 USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell\BagMRU
+Description:
+Contains Most Recently Used (MRU) information for folders accessed by the user.
+
+Forensic Value:
+Provides evidence of folder access history, which can be useful for tracking user activity or file exfiltration.
+
+🔹 NTUSER.DAT\Software\Microsoft\Windows\Shell\BagMRU
+Description:
+Tracks Most Recently Used (MRU) folders accessed by the user.
+
+Forensic Value:
+Helps identify recent folder access and can aid in tracking user activity, including potentially unauthorized file access.
+
+🔹 NTUSER.DAT\Software\Microsoft\Windows\Shell\Bags
+Description:
+Similar to the previous key, but stores more detailed folder and file history.
+
+Forensic Value:
+Provides detailed insights into user file/folder navigation, revealing patterns of suspicious file access.
+
+🔹 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePIDlMRU
+Description:
+Tracks the open/save dialog box history for the user, storing recently opened and saved files.
+
+Forensic Value:
+Helps identify recently opened or saved files through Windows Explorer, which can be useful for uncovering malicious file interactions.
+
+🔹 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedPidlMRU
+Description:
+Tracks recently accessed folders and files through dialog boxes (e.g., file open/save).
+
+Forensic Value:
+Can identify folder and file access patterns, helping to uncover suspicious activity or unauthorized access to files.
+
+🔹 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths
+Description:
+Contains recently typed file paths and URLs.
+
+Forensic Value:
+Provides insights into files and URLs typed by the user, which can help uncover potentially malicious activity or data exfiltration.
+
+🔹 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery
+Description:
+Stores the search history for files and folders that were searched for using Windows search.
+
+Forensic Value:
+Helps uncover file search patterns that may indicate sensitive file access or malicious behavior.
+
+🔹 NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{GUID}\Count
+Description:
+Tracks user activity by logging the execution count of programs and files through the UserAssist registry key.
+
+Forensic Value:
+Provides a count of user activity, including malicious program execution or unauthorized access to files.
+
+🔹 SYSTEM\CurrentControlSet\Control\Session Manager\AppCompatCache
+Description:
+Contains information about executables that have been run on the system, including those that were incompatible with the current version of Windows.
+
+Forensic Value:
+Can help detect malicious executables and analyze programs that have been executed on the system, even if they were removed or hidden.
+
+🔹 AppCompatCacheParser.exe --csv <path to save output> -f <path to SYSTEM hive for data parsing> -c <control set to parse>
+Description:
+Command-line tool used to parse the AppCompatCache registry key into CSV format for analysis.
+
+Forensic Value:
+Helps process AppCompatCache data, making it easier to analyze for forensic investigations into program execution.
+
+🔹 C:\Windows\appcompat\Programs\Amcache.hve
+Description:
+Stores information about programs executed on the system, including files and executables accessed or launched.
+
+Forensic Value:
+Useful for tracking executed files, even after they are deleted, and analyzing malicious activity or data exfiltration.
+
+🔹 Amcache.hve\Root\File\{Volume GUID}\
+Description:
+Contains file access history information for executables and files executed on the system.
+
+Forensic Value:
+Provides valuable data on file execution even after files have been removed, aiding in malware investigations.
