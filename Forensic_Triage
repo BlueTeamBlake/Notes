@@ -4,7 +4,7 @@ A structured approach to threat hunting, memory forensics, and post-incident ana
 
 ---
 
-## 1. Initial Access
+## 🔓 1. Initial Access
 
 **Where to Look:**
 - `Event ID 4624`, `4625`, `4776`, `4768` – Login attempts
@@ -14,7 +14,7 @@ A structured approach to threat hunting, memory forensics, and post-incident ana
 
 ---
 
-## 2. Execution
+## ⚙️ 2. Execution
 
 **Where to Look:**
 - `.pf` Prefetch files
@@ -25,7 +25,7 @@ A structured approach to threat hunting, memory forensics, and post-incident ana
 
 ---
 
-## 3. Persistence
+## 🧬 3. Persistence
 
 **Where to Look:**
 - Registry autoruns:
@@ -38,7 +38,7 @@ A structured approach to threat hunting, memory forensics, and post-incident ana
 
 ---
 
-## 4. Command & Control
+## 📡 4. Command & Control
 
 **Where to Look:**
 - `netstat`, `tcpview`, `Wireshark`, or Volatility `netscan`
@@ -48,7 +48,7 @@ A structured approach to threat hunting, memory forensics, and post-incident ana
 
 ---
 
-## 5. Exfiltration / Lateral Movement
+## 📦 5. Exfiltration / Lateral Movement
 
 **Where to Look:**
 - File access logs / audit logs
@@ -59,7 +59,7 @@ A structured approach to threat hunting, memory forensics, and post-incident ana
 
 ---
 
-## 6. Impact
+## 💣 6. Impact
 
 **Where to Look:**
 - File extension changes
@@ -84,3 +84,4 @@ A structured approach to threat hunting, memory forensics, and post-incident ana
 ---
 
 > _"Digital forensics is less about the tools, more about knowing where the attacker leaves fingerprints."_ 🕵️‍♂️
+
